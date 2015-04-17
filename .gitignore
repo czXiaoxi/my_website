@@ -1,3 +1,5 @@
 .metadata
 website/target
+website/target/*
 website/RemoteSystemsTempFiles
+website/RemoteSystemsTempFiles/*
