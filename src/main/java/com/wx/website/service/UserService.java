@@ -1,7 +1,5 @@
 package com.wx.website.service;
 
-import com.wx.website.untity.User;
-
-public interface IUserService {
+public class IUserService extends {
 	public User getUserById(int userId);
 }
