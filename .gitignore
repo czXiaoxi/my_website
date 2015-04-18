@@ -1,7 +1,5 @@
-website
-website/.metadata
 .metadata
-website/target
-website/target/*
-website/RemoteSystemsTempFiles
-website/RemoteSystemsTempFiles/*
+target
+target/*
+RemoteSystemsTempFiles
+RemoteSystemsTempFiles/*
