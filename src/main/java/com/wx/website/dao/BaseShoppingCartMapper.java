@@ -1,4 +1,4 @@
-package com.wx.website.mapping;
+package com.wx.website.dao;
 
 import com.wx.website.model.ShoppingCart;
 

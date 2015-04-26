@@ -4,11 +4,13 @@
 	<typeAliases>  
 		<typeAlias alias="Estore" type="com.wx.website.model.Estore"/>
 		<typeAlias alias="User" type="com.wx.website.model.User"/>
-		<typeAlias alias="ShoopingCart" type="com.wx.website.model.ShoppingCart"/>  
+		<typeAlias alias="ShoppingCart" type="com.wx.website.model.ShoppingCart"/>  
     </typeAliases>  
+    
     <mappers>  
-         <mapper resource="com/wx/website/mapping/*.xml" />  
-         <!-- <mapper resource="com/wx/website/mapping/ShoppingCartMapper.xml" />
-         <mapper resource="com/wx/website/mapping/EstoreMapper.xml" /> -->
-    </mappers> 
+        <mapper resource="com/wx/website/mapping/EstoreMapper.xml" />  
+        <mapper resource="com/wx/website/mapping/ShoppingCartMapper.xml" />
+        <mapper resource="com/wx/website/mapping/UserMapper.xml" />
+    </mappers>  
+          
 </configuration>    

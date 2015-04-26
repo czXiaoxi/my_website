@@ -11,11 +11,10 @@
   http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd">
   <!-- 引入配置文件 -->
   
-  <bean id="propertyConfigurer"
-    class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
-    <property name="location" value="classpath:jdbc.properties" />
-  </bean>
+  <context:component-scan base-package="com.wx.website.service.impl" />
 
+  <context:property-placeholder location="classpath:spring/jdbc.properties"/>
+  
   <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
     destroy-method="close">
     <property name="driverClassName" value="${driver}" />
@@ -36,18 +35,17 @@
 
   <!-- spring和MyBatis，不需要mybatis的配置映射文件 -->
   <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
-        <property name="configLocation" value="classpath:mybatis-configeration.xml"></property>
         <property name="dataSource" ref="dataSource" />
-    </bean>
-
-  <bean id="UserMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">  
-    <property name="mapperInterface" value="com.wx.website.mapping.*" />  
-    <property name="sqlSessionFactory" ref="sqlSessionFactory" />  
+        <property name="configLocation" value="classpath:spring/mybatis-configeration.xml"></property>
   </bean>
 
-  <!-- (事务管理)transaction manager, use JtaTransactionManager for global tx -->
-  <!-- <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">  
-    <property name="dataSource" ref="dataSource" />  
-</bean>   -->
+  <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+  	<property name="basePackage" value="com.wx.website.dao" />
+  	<property name="sqlSessionFactoryBeanName" value="sqlSessionFactory" />
+  </bean>
+
+  <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+  	<property name="dataSource" ref="dataSource" />
+  </bean>
   
 </beans>
