@@ -8,7 +8,7 @@
     <result column="address" jdbcType="VARCHAR" property="address" />
     <result column="phone_number" jdbcType="VARCHAR" property="phoneNumber" />
   </resultMap>
-  <!-- <sql id="Base_Column_List">
+  <sql id="Base_Column_List">
     user_id, user_name, password, address, phone_number
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
@@ -89,8 +89,8 @@
       address = #{address,jdbcType=VARCHAR},
       phone_number = #{phoneNumber,jdbcType=VARCHAR}
     where user_id = #{userId,jdbcType=INTEGER}
-  </update> -->
-  <select id="aa" parameterType="int" resultType="com.wx.website.model.User">
+  </update>
+  <!-- <select id="aa" parameterType="int" resultType="com.wx.website.model.User">
   	select * from user where user_id = #{userId}
-  </select>
+  </select> -->
 </mapper>
