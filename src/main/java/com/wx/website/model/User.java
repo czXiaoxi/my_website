@@ -4,7 +4,14 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class User {
-    private Integer userId;
+    @Override
+	public String toString() {
+		return "User [userId=" + userId + ", userName=" + userName
+				+ ", password=" + password + ", address=" + address
+				+ ", phoneNumber=" + phoneNumber + "]";
+	}
+
+	private Integer userId;
 
     private String userName;
 
@@ -53,13 +60,4 @@ public class User {
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber == null ? null : phoneNumber.trim();
     }
-
-	@Override
-	public String toString() {
-		return "User [userId=" + userId + ", userName=" + userName
-				+ ", password=" + password + ", address=" + address
-				+ ", phoneNumber=" + phoneNumber + "]";
-	}
-    
-
 }

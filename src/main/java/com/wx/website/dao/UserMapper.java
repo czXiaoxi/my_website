@@ -2,7 +2,7 @@ package com.wx.website.dao;
 
 import com.wx.website.model.User;
 
-public interface BaseUserMapper {
+public interface UserMapper {
     int deleteByPrimaryKey(Integer userId);
 
     int insert(User record);

@@ -1,88 +1,88 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.wx.website.dao.BaseEstoreMapper">
-  <resultMap id="BaseResultMap" type="Estore">
-    <id column="goods_id" jdbcType="INTEGER" property="goodsId" />
-    <result column="goods_name" jdbcType="VARCHAR" property="goodsName" />
-    <result column="category" jdbcType="VARCHAR" property="category" />
-    <result column="describe" jdbcType="VARCHAR" property="describe" />
-    <result column="price" jdbcType="DOUBLE" property="price" />
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.wx.website.dao.EstoreMapper" >
+  <resultMap id="BaseResultMap" type="Estore" >
+    <id column="goods_id" property="goodsId" jdbcType="INTEGER" />
+    <result column="goods_name" property="goodsName" jdbcType="VARCHAR" />
+    <result column="category" property="category" jdbcType="VARCHAR" />
+    <result column="describe" property="describe" jdbcType="VARCHAR" />
+    <result column="price" property="price" jdbcType="DOUBLE" />
   </resultMap>
-  <sql id="Base_Column_List">
+  <sql id="Base_Column_List" >
     goods_id, goods_name, category, describe, price
   </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
     <include refid="Base_Column_List" />
     from estore
     where goods_id = #{goodsId,jdbcType=INTEGER}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from estore
     where goods_id = #{goodsId,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="Estore">
+  <insert id="insert" parameterType="com.wx.website.model.Estore" >
     insert into estore (goods_id, goods_name, category, 
       describe, price)
     values (#{goodsId,jdbcType=INTEGER}, #{goodsName,jdbcType=VARCHAR}, #{category,jdbcType=VARCHAR}, 
       #{describe,jdbcType=VARCHAR}, #{price,jdbcType=DOUBLE})
   </insert>
-  <insert id="insertSelective" parameterType="Estore">
+  <insert id="insertSelective" parameterType="Estore" >
     insert into estore
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="goodsId != null">
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="goodsId != null" >
         goods_id,
       </if>
-      <if test="goodsName != null">
+      <if test="goodsName != null" >
         goods_name,
       </if>
-      <if test="category != null">
+      <if test="category != null" >
         category,
       </if>
-      <if test="describe != null">
+      <if test="describe != null" >
         describe,
       </if>
-      <if test="price != null">
+      <if test="price != null" >
         price,
       </if>
     </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="goodsId != null">
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="goodsId != null" >
         #{goodsId,jdbcType=INTEGER},
       </if>
-      <if test="goodsName != null">
+      <if test="goodsName != null" >
         #{goodsName,jdbcType=VARCHAR},
       </if>
-      <if test="category != null">
+      <if test="category != null" >
         #{category,jdbcType=VARCHAR},
       </if>
-      <if test="describe != null">
+      <if test="describe != null" >
         #{describe,jdbcType=VARCHAR},
       </if>
-      <if test="price != null">
+      <if test="price != null" >
         #{price,jdbcType=DOUBLE},
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="Estore">
+  <update id="updateByPrimaryKeySelective" parameterType="Estore" >
     update estore
-    <set>
-      <if test="goodsName != null">
+    <set >
+      <if test="goodsName != null" >
         goods_name = #{goodsName,jdbcType=VARCHAR},
       </if>
-      <if test="category != null">
+      <if test="category != null" >
         category = #{category,jdbcType=VARCHAR},
       </if>
-      <if test="describe != null">
+      <if test="describe != null" >
         describe = #{describe,jdbcType=VARCHAR},
       </if>
-      <if test="price != null">
+      <if test="price != null" >
         price = #{price,jdbcType=DOUBLE},
       </if>
     </set>
     where goods_id = #{goodsId,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="Estore">
+  <update id="updateByPrimaryKey" parameterType="Estore" >
     update estore
     set goods_name = #{goodsName,jdbcType=VARCHAR},
       category = #{category,jdbcType=VARCHAR},

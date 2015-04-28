@@ -7,10 +7,10 @@
 		<typeAlias alias="ShoppingCart" type="com.wx.website.model.ShoppingCart"/>  
     </typeAliases>  
     
-    <mappers>  
+    <!-- <mappers>  
         <mapper resource="com/wx/website/mapping/EstoreMapper.xml" />  
         <mapper resource="com/wx/website/mapping/ShoppingCartMapper.xml" />
         <mapper resource="com/wx/website/mapping/UserMapper.xml" />
-    </mappers>  
+    </mappers>   -->
           
 </configuration>    

@@ -2,7 +2,7 @@ package com.wx.website.dao;
 
 import com.wx.website.model.Estore;
 
-public interface BaseEstoreMapper {
+public interface EstoreMapper {
     int deleteByPrimaryKey(Integer goodsId);
 
     int insert(Estore record);
