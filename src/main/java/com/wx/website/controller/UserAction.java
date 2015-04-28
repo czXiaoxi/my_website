@@ -14,10 +14,15 @@ public class UserAction {
 	
 	@Autowired
 	private UserServiceImpl userServiceImpl;
+	private Integer userId;
+    private String userName;
+    private String password;
+    private String address;
+    private String phoneNumber;
 	
 	@RequestMapping(value="/adduser")
 	public String addUser(){
-		User user = userServiceImpl.saveUser(5, "test", "123456", "shanghai", "5555");
+		User user = userServiceImpl.saveUser(userId, userName, password, address, phoneNumber);
 	    return "success";
 	}
 	
@@ -25,5 +30,11 @@ public class UserAction {
 	public String delectUser(){
 		userServiceImpl.delectUser(5);
 		return "success";
+	}
+	
+	@RequestMapping(value="/selectuser", method=GET)
+	public User selectUser(){
+		User user = userServiceImpl.selectByuserId(userId);
+		return user;
 	}
 }

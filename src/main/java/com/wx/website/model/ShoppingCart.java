@@ -11,8 +11,6 @@ public class ShoppingCart {
 
     private Double price;
 
-    private Double totalPrice;
-
     public Integer getUserId() {
         return userId;
     }
@@ -53,11 +51,4 @@ public class ShoppingCart {
         this.price = price;
     }
 
-    public Double getTotalPrice() {
-        return totalPrice;
-    }
-
-    public void setTotalPrice(Double totalPrice) {
-        this.totalPrice = totalPrice;
-    }
 }

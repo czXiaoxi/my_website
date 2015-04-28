@@ -38,5 +38,11 @@ public class UserServiceImpl implements UserService{
 		int result = userMapper.deleteByPrimaryKey(userId);
 		return result;
 	}
+	
+	public User selectByuserId(int userId) {
+		// TODO Auto-generated method stub
+		User user = userMapper.selectByPrimaryKey(userId);
+		return user;
+	}
 
 }
