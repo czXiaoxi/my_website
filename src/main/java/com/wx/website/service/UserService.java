@@ -7,4 +7,7 @@ public interface UserService {
 			String password,String address,String phoneNumber);
 	
 	int delectUser(int userId);
+	
+	User selectByuserId(int userId);
+	
 }
