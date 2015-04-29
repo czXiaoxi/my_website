@@ -1,5 +1,8 @@
 package com.wx.website.model;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class Estore {
     private Integer goodsId;
 

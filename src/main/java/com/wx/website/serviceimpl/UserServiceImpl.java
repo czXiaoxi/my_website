@@ -16,12 +16,12 @@ public class UserServiceImpl implements UserService{
 	@Autowired
 	private UserMapper userMapper;
 	
-	public void setUserMapper(UserMapper userMapper) {
+	/*public void setUserMapper(UserMapper userMapper) {
 		this.userMapper = userMapper;
 	}
 	public UserMapper getUserMapper(){
 		return userMapper;
-	}
+	}*/
 	public User saveUser(int useId, String userName, String password,
 			String address, String phoneNumber) {
 		// TODO Auto-generated method stub
@@ -40,9 +40,15 @@ public class UserServiceImpl implements UserService{
 	}
 	
 	public User selectByuserId(int userId) {
-		// TODO Auto-generated method stub
 		User user = userMapper.selectByPrimaryKey(userId);
 		return user;
+	}
+	public int UpdateUser() {
+		return 0;
+	}
+	public int deleteUser(int userId) {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 	
 }

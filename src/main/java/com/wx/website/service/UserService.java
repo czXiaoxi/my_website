@@ -6,8 +6,9 @@ public interface UserService {
 	User saveUser(int useId,String userName,
 			String password,String address,String phoneNumber);
 	
-	int delectUser(int userId);
+	int deleteUser(int userId);
 	
 	User selectByuserId(int userId);
 	
+	int UpdateUser();
 }

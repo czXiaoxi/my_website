@@ -1,5 +1,14 @@
 package com.wx.website.service;
 
-public class EstoreService {
+import com.wx.website.model.Estore;
 
+public interface EstoreService {
+	
+	Estore addGoods();
+	
+	Estore selectGoods();
+	
+	int updateGoods();
+	
+	int deleteGoods();
 }

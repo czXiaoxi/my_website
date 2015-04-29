@@ -8,6 +8,19 @@
     <result column="count" property="count" jdbcType="INTEGER" />
     <result column="price" property="price" jdbcType="DOUBLE" />
   </resultMap>
+  <sql id="Base_Column_List" >
+    user_id, goods_id, goods_name, count, price
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from shopping_cart
+    where goods_id = #{goods_id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+  	delete from shopping_cart
+  	where goods_id = #{goods_id,jdbcType=INTEGER}
+  </delete>
   <insert id="insert" parameterType="ShoppingCart" >
     insert into shopping_cart (user_id, goods_id, goods_name, 
       count, price
@@ -53,4 +66,13 @@
       </if>
     </trim>
   </insert>
+  <update id="updateByPrimaryKey" parameterType="ShoppingCart" >
+    update shopping_cart
+    set  user_id= #{userId,jdbcType=VARCHAR},
+      goods_id = #{goodsId,jdbcType=VARCHAR},
+      goods_name = #{goodsName,jdbcType=VARCHAR},
+      count = #{count,jdbcType=INTEGER}
+      price = #{price,jdbcType=DOUBLE}
+    where goods_id = #{goodsId,jdbcType=INTEGER}
+  </update>
 </mapper>

@@ -22,11 +22,11 @@ public class UserAction {
 	
 	@RequestMapping(value="/adduser" )
 	public String addUser(){
-	User user = userServiceImpl.saveUser(9,"userName", "password","address", "phoneNumber");
+	User user = userServiceImpl.saveUser(9,"ttttt", "password","address", "phoneNumber");
 	    return "success";
 	}
 	
-	@RequestMapping(value="/delectuser")
+	@RequestMapping(value="/deleteuser")
 	public String delectUser(){
 		userServiceImpl.delectUser(5);
 		return "success";
@@ -36,5 +36,10 @@ public class UserAction {
 	public User selectUser(){
 		User user = userServiceImpl.selectByuserId(3);
 		return user;
+	}
+	
+	@RequestMapping(value="updateuser")
+	public int updateUser(){
+		return 0;
 	}
 }
