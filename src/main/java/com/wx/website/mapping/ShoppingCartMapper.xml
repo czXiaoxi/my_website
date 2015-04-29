@@ -7,14 +7,13 @@
     <result column="goods_name" property="goodsName" jdbcType="VARCHAR" />
     <result column="count" property="count" jdbcType="INTEGER" />
     <result column="price" property="price" jdbcType="DOUBLE" />
-    <result column="total_price" property="totalPrice" jdbcType="DOUBLE" />
   </resultMap>
   <insert id="insert" parameterType="ShoppingCart" >
     insert into shopping_cart (user_id, goods_id, goods_name, 
-      count, price, total_price
+      count, price
       )
     values (#{userId,jdbcType=INTEGER}, #{goodsId,jdbcType=VARCHAR}, #{goodsName,jdbcType=VARCHAR}, 
-      #{count,jdbcType=INTEGER}, #{price,jdbcType=DOUBLE}, #{totalPrice,jdbcType=DOUBLE}
+      #{count,jdbcType=INTEGER}, #{price,jdbcType=DOUBLE}
       )
   </insert>
   <insert id="insertSelective" parameterType="ShoppingCart" >
@@ -35,9 +34,6 @@
       <if test="price != null" >
         price,
       </if>
-      <if test="totalPrice != null" >
-        total_price,
-      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="userId != null" >
@@ -54,9 +50,6 @@
       </if>
       <if test="price != null" >
         #{price,jdbcType=DOUBLE},
-      </if>
-      <if test="totalPrice != null" >
-        #{totalPrice,jdbcType=DOUBLE},
       </if>
     </trim>
   </insert>
