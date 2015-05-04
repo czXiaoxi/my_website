@@ -33,22 +33,27 @@ public class UserServiceImpl implements UserService{
 		userMapper.insert(user);
 		return user;
 	}
-	public int delectUser(int userId) {
+	public int deleteUser(int userId) {
 		// TODO Auto-generated method stub
-		int result = userMapper.deleteByPrimaryKey(userId);
-		return result;
+		 
+		return userMapper.deleteByPrimaryKey(userId);
 	}
 	
-	public User selectByuserId(int userId) {
-		User user = userMapper.selectByPrimaryKey(userId);
-		return user;
-	}
 	public int UpdateUser() {
 		return 0;
 	}
-	public int deleteUser(int userId) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
 	
+	public User selectByName(String userName) {
+		
+		return userMapper.selectByUserName(userName);
+	}
+	public User selectById(int userId) {
+		// TODO Auto-generated method stub
+		return userMapper.selectByPrimaryKey(userId);
+	}
+
+	public boolean hasMatchUser(String userName, String password) {
+        int matchCount = userMapper.getMatchCount(userName, password);
+        return matchCount > 0;
+    }
 }

@@ -1,9 +1,12 @@
 package com.wx.website.controller;
 
+
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.wx.website.model.User;
 import com.wx.website.serviceimpl.UserServiceImpl;
@@ -22,24 +25,39 @@ public class UserAction {
 	
 	@RequestMapping(value="/adduser" )
 	public String addUser(){
-	User user = userServiceImpl.saveUser(9,"ttttt", "password","address", "phoneNumber");
+	User user = userServiceImpl.saveUser(10,"ttttt", "password","address", "phoneNumber");
 	    return "success";
 	}
 	
 	@RequestMapping(value="/deleteuser")
 	public String delectUser(){
-		userServiceImpl.delectUser(5);
+		userServiceImpl.deleteUser(5);
 		return "success";
 	}
 	
 	@RequestMapping(value="/selectuser")
 	public User selectUser(){
-		User user = userServiceImpl.selectByuserId(3);
+		User user = userServiceImpl.selectById(userId);
 		return user;
 	}
 	
-	@RequestMapping(value="updateuser")
+	@RequestMapping(value="/updateuser")
 	public int updateUser(){
 		return 0;
 	}
+	
+	@RequestMapping(value="/loginCheck")
+	public ModelAndView loginCheck(HttpServletRequest request,User users){
+		boolean isValidUser =
+                userServiceImpl.hasMatchUser(users.getUserName(),
+                		users.getPassword());
+        if (!isValidUser) {
+            return new ModelAndView("login", "error", "用户名或密码错误。");
+        } else {
+            User user = userServiceImpl.selectByName(users.getUserName());
+            request.getSession().setAttribute("user",user);
+            return new ModelAndView("main");
+        }
+	}
+	
 }

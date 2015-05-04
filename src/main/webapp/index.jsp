@@ -1,19 +1,23 @@
-<!DOCTYPE html>
+<%@ page language="java" import="java.util.*" pageEncoding="ISO-8859-1" %>
+<%
+    String path = request.getContextPath();
+    String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
+%>
 
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-    
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%-- <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%> --%>
-
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
-	<head>
-		<meta charset="utf-8">
-		<title>website</title>
-	</head> 
-	<body>
-		<c:url value="/showMessage.html" var="messageUrl" />
-		<a href="${messageUrl}">Welcome to my website</a>
-	</body>
+<head>
+    <base href="<%=basePath%>">
+
+    <title>loading...</title>
+    <meta http-equiv="pragma" content="no-cache">
+    <meta http-equiv="cache-control" content="no-cache">
+    <meta http-equiv="expires" content="0">
+    <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+    <meta http-equiv="description" content="This is my page">
+</head>
+<script>
+    window.location.href = "<c:url value="/user/login" />";
+</script>
 </html>
-
-
