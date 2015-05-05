@@ -1,6 +1,7 @@
 package com.wx.website.model;
 
 import org.springframework.stereotype.Component;
+import org.springframework.web.bind.annotation.ModelAttribute;
 
 @Component
 public class User {

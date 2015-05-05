@@ -14,6 +14,6 @@ public class Loginpage {
 	
 	@RequestMapping(value="/register")
 	public String register(){
-		return "redirect:/register";
+		return "register";
 	}
 }

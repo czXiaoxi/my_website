@@ -1,11 +1,11 @@
 package com.wx.website.controller;
 
-
 import javax.servlet.http.HttpServletRequest;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.wx.website.model.User;
@@ -23,9 +23,14 @@ public class UserAction {
     private String address;
     private String phoneNumber;
 	
-	@RequestMapping(value="/adduser" )
-	public String addUser(){
-	User user = userServiceImpl.saveUser(10,"ttttt", "password","address", "phoneNumber");
+	@RequestMapping(value="/adduser", method = RequestMethod.POST)
+	public String addUser(@ModelAttribute("user") User user){
+		userId = user.getUserId();
+		userName = user.getUserName();
+		password = user.getPassword();
+		address = user.getPassword();
+		phoneNumber = user.getPhoneNumber();
+	    userServiceImpl.saveUser(userId,userName,password,address,phoneNumber);
 	    return "success";
 	}
 	
@@ -56,7 +61,7 @@ public class UserAction {
         } else {
             User user = userServiceImpl.selectByName(users.getUserName());
             request.getSession().setAttribute("user",user);
-            return new ModelAndView("main");
+            return new ModelAndView("success");
         }
 	}
 	

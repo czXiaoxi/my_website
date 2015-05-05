@@ -8,6 +8,6 @@
     <title>小希的小店</title>
 </head>
 <body>
-hi，${user.userName},欢迎！
+
 </body>
 </html>
