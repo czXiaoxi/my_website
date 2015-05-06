@@ -13,4 +13,6 @@ public interface UserService {
 	int UpdateUser();
 	
 	User selectById(int userId);
+	
+	User selectByuserId(int userId);
 }

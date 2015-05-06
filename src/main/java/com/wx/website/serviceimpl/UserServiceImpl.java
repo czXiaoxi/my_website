@@ -51,6 +51,12 @@ public class UserServiceImpl implements UserService{
 		// TODO Auto-generated method stub
 		return userMapper.selectByPrimaryKey(userId);
 	}
+	
+	public User selectByuserId(int userId) {
+		// TODO Auto-generated method stub
+		User user = userMapper.selectByPrimaryKey(userId);
+		return user;
+	}
 
 	public boolean hasMatchUser(String userName, String password) {
         int matchCount = userMapper.getMatchCount(userName, password);
