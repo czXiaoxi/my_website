@@ -14,9 +14,9 @@
 <center>
 	<br>
 	<br>
-	<form action="dl-conf.jsp" method="post">
+	<form action=""  method="post">
 	<table width="404" height="193">
-	
+		<a href="/website/user/shoppingcart">shoppingcart</a>
 	</table>
 	</form>
 </center>

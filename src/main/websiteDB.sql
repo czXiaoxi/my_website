@@ -23,6 +23,15 @@ create TABLE `shopping_cart` (
   goods_name varchar(50) not NULL, 
   `count` int not NULL,
   price double not null,
-  total_price double not null
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+drop table orderline;
+create table orderline(
+	line_id int AUTO_INCREMENT primary key,
+	goods_id int references estore(goods_id),
+	count int not null
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+insert into estore(goods_id,goods_name,category,describe,price) values(,"怡宝"，"食品"，"纯净水"，2),
+							(,"iphone6","手机"，"电子"，"shouji","5000"),
+							(,"水杯"，"家电","杯子",50);

@@ -16,4 +16,14 @@ public class Loginpage {
 	public String register(){
 		return "register";
 	}
+	
+	@RequestMapping(value="/shoppingcart")
+	public String shoppingCart(){
+		return "shoppingCart";
+	}
+	
+	@RequestMapping(value="/checkorder")
+	public String checkOrder(){
+		return "checkorder";
+	}
 }
