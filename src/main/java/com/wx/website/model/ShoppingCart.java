@@ -1,5 +1,7 @@
 package com.wx.website.model;
 
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import org.springframework.stereotype.Component;
@@ -56,45 +58,45 @@ public class ShoppingCart {
         this.price = price;
     }
     
-   /* List<OrderLine> items = new ArrayList<CartItem>();  
+    List<OrderLine> items = new ArrayList<OrderLine>();  
     
-    public List<CartItem> getItems() {  
+    public List<OrderLine> getItems() {  
         return items;  
     }  
   
-    public void setItems(List<CartItem> items) {  
+    public void setItems(List<OrderLine> items) {  
         this.items = items;  
     }  
       
-    public void add(CartItem ci) {  
-        for (Iterator<CartItem> iter = items.iterator(); iter.hasNext();) {  
-            CartItem item = iter.next();  
-            if(item.getProduct().getId() == ci.getProduct().getId()) {  
+    public void add(OrderLine order) {  
+        for (Iterator<OrderLine> iter = items.iterator(); iter.hasNext();) {  
+        	OrderLine item = iter.next();  
+            if(item.getEstore().getGoodsId() == order.getEstore().getGoodsId()) {  
                 item.setCount(item.getCount() + 1);  
                 return;  
             }  
         }  
           
-        items.add(ci);  
+        items.add(order);  
     }  
       
     public double getTotalPrice() {  
         double d = 0.0;  
-        for(Iterator<CartItem> it = items.iterator(); it.hasNext(); ) {  
-            CartItem current = it.next();  
-            d += current.getProduct().getPrice() * current.getCount();  
+        for(Iterator<OrderLine> it = items.iterator(); it.hasNext(); ) {  
+        	OrderLine current = it.next();  
+            d += current.getEstore().getPrice() * current.getCount();  
         }  
         return d;  
     }  
       
-    public void deleteItemById(String productId) {  
-        for (Iterator<CartItem> iter = items.iterator(); iter.hasNext();) {  
-            CartItem item = iter.next();  
-            if(item.getProduct().getId().equals(productId)) {  
+    public void deleteItemById(String goodsId) {  
+        for (Iterator<OrderLine> iter = items.iterator(); iter.hasNext();) {  
+        	OrderLine item = iter.next();  
+            if(item.getEstore().getGoodsId().equals(goodsId)) {  
                 iter.remove();  
                 return;  
             }  
         }  
-    }  */
+    }  
 
 }
