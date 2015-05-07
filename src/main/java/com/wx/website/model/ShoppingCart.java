@@ -1,8 +1,5 @@
 package com.wx.website.model;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
 
 import org.springframework.stereotype.Component;
 
@@ -58,45 +55,4 @@ public class ShoppingCart {
         this.price = price;
     }
     
-    List<OrderLine> items = new ArrayList<OrderLine>();  
-    
-    public List<OrderLine> getItems() {  
-        return items;  
-    }  
-  
-    public void setItems(List<OrderLine> items) {  
-        this.items = items;  
-    }  
-      
-    public void add(OrderLine order) {  
-        for (Iterator<OrderLine> iter = items.iterator(); iter.hasNext();) {  
-        	OrderLine item = iter.next();  
-            if(item.getEstore().getGoodsId() == order.getEstore().getGoodsId()) {  
-                item.setCount(item.getCount() + 1);  
-                return;  
-            }  
-        }  
-          
-        items.add(order);  
-    }  
-      
-    public double getTotalPrice() {  
-        double d = 0.0;  
-        for(Iterator<OrderLine> it = items.iterator(); it.hasNext(); ) {  
-        	OrderLine current = it.next();  
-            d += current.getEstore().getPrice() * current.getCount();  
-        }  
-        return d;  
-    }  
-      
-    public void deleteItemById(String goodsId) {  
-        for (Iterator<OrderLine> iter = items.iterator(); iter.hasNext();) {  
-        	OrderLine item = iter.next();  
-            if(item.getEstore().getGoodsId().equals(goodsId)) {  
-                iter.remove();  
-                return;  
-            }  
-        }  
-    }  
-
 }

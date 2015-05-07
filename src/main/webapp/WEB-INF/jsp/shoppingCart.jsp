@@ -36,25 +36,6 @@
 			<td valign=middle align=center  width=""><b>合计</b></td>
 			<td valign=middle align=center  width=""><b>操作</b></td>
 		</tr>
-        <c:forEach items="${sessionScope.cart.OrderLine }" var="orderline">
-		<tr>
-			<form method="post" action="UpdateProductServlet" name="f1">
-			<input type="hidden" name="productid" value="${orderline.product.productid }">
-			<input type="hidden" name="number">
-			<%
-				int i=1;
-			%>
-			<td  valign=middle align=center width=""><%=i++ %></td>
-			<td  valign=middle width="">&nbsp;&nbsp;<a href="ProductDetailServlet?productid=${orderline.shoppingcart.goodsid }">${orderline.shoppingcart.goodsname }</a></td>
-			<td  valign=middle align=center width="">${orderline.shoppingcart.price }</td>
-			<td  valign=middle align=center width=""><input type="text" name="num" value="${orderline.count }" size="4" onblur="javascript:if(this.value<1){alert('对不起，产品数量不能小于 1 ');this.focus();}else{number.value=this.value;}"/></td>
-			<td  valign=middle align=left width="">&nbsp;&nbsp;${(orderline.shoppingcart.price)*(orderline.count) }</td>
-			<td  valign=middle align=center width="">
-			<input type="button" value="删除" onclick="javascript:window.location='RemoveProductServlet?productid=${orderline.estore.goodsId }';"> <input type="submit" value="保存修改"></td>
-			</form>
-		</tr>
-        </c:forEach>        
-                
 		<tr>
 			<td valign=middle align=center colspan="4">　</td>
 			<td valign=middle align=left width="">&nbsp;&nbsp;<b>${sessionScope.cart.totalPrice }</b></td>
@@ -62,7 +43,7 @@
 		</tr>
 		<tr>
 			<td  valign=middle align=center colspan="6"><input type="button" value="提交订单" onclick="<c:url value="/user/checkorder"/>"/> 
-			<input type="button" value="清空购物车" onclick="<c:url value="/cart/deleteCart"/>" /></td>
+			<input type="button" value="清空购物车" onclick="<c:url value=""/>" /></td>
 		</tr>
    
 </table>

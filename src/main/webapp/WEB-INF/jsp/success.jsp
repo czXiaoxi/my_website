@@ -5,10 +5,6 @@
 <head>
 	<title>迷你小网站</title>
 		&nbsp; &nbsp; hi，${user.userName},欢迎！
-    <style type="text/css">
-		STYLE2 {font-size: 10px}
-.	 STYLE3 {font-size: 36px; }
-    </style>
 </head>
 <body>
 <center>
